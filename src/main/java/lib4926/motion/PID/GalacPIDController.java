@@ -49,7 +49,8 @@ public class GalacPIDController {
     public void setMinEffort(double minEffort) {
         this.minEffort = minEffort;
     }
- /**
+    
+    /**
      * 
      * @param p Proportional gain
      * @param i Integral gain
