@@ -5,16 +5,16 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class GalacticWarpDrive {
 
-  public DifferentialDrive m_drive;
+  private DifferentialDrive m_drive;
 
   public GalacticWarpDrive(DifferentialDrive drive) {
     this.m_drive = drive;
     drive.setSafetyEnabled(false);
   }
 
-  public double slewRate = 0.9;
-  public SlewRateLimiter filter = new SlewRateLimiter(slewRate);
-  public boolean enableSlewLimiting = false;
+  private double slewRate = 0.9;
+  private SlewRateLimiter filter = new SlewRateLimiter(slewRate);
+  private boolean enableSlewLimiting = false;
 
   public void resetSlewLimiter() {
     filter = new SlewRateLimiter(slewRate);

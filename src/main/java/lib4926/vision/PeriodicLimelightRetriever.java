@@ -48,12 +48,14 @@ public class PeriodicLimelightRetriever {
     }
 
     /**
-     * Calculates the horizontal distance (parallel to the ground) between the Limelight camera and the 
+     * Calculates the horizontal distance (parallel to the ground) between the
+     * Limelight camera and the
      * center of the target box.
      * 
-     * @param pitch the angle that the camera is pitched up, in degrees
+     * @param pitch        the angle that the camera is pitched up, in degrees
      * @param cameraHeight the height at which the camera lens is located, in inches
-     * @param targetHeight the height at which the center of the target box is located, in inches
+     * @param targetHeight the height at which the center of the target box is
+     *                     located, in inches
      * @return the horizontal distance
      */
     public double calcHorizontalDistance(double pitch, double cameraHeight, double targetHeight) {
@@ -61,20 +63,21 @@ public class PeriodicLimelightRetriever {
             return -1;
         }
 
-        double ty = Math.toRadians(limelightY);
-        double dh = targetHeight - cameraHeight; // target height - camera height
-
-        return dh / Math.tan(Math.toRadians(pitch) + ty);
+        double dh = targetHeight - cameraHeight;
+        return dh / Math.tan(Math.toRadians(pitch + limelightY));
     }
 
     /**
-     * Calculates the horizontal distance (parallel to the ground) between the Limelight camera and the 
-     * center of the target box, with an additional specified offset added to the calculation.
+     * Calculates the horizontal distance (parallel to the ground) between the
+     * Limelight camera and the
+     * center of the target box, with an additional specified offset added to the
+     * calculation.
      * 
-     * @param pitch the angle that the camera is pitched up, in degrees
+     * @param pitch        the angle that the camera is pitched up, in degrees
      * @param cameraHeight the height at which the camera lens is located, in inches
-     * @param targetHeight the height at which the center of the target box is located, in inches
-     * @param offset the offset to add to the distance calculation
+     * @param targetHeight the height at which the center of the target box is
+     *                     located, in inches
+     * @param offset       the offset to add to the distance calculation
      * @return the horizontal distance
      */
     public double calcHorizontalDistance(double pitch, double cameraHeight, double targetHeight, double offset) {

@@ -1,6 +1,5 @@
 package lib4926.util.motorcontrollers;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.function.Consumer;
@@ -11,7 +10,7 @@ import com.revrobotics.CANSparkMax.IdleMode;
 
 public class SparkMaxControlGroup {
     
-    ArrayList<CANSparkMax> sparkMaxList;
+    private ArrayList<CANSparkMax> sparkMaxList;
     
     public SparkMaxControlGroup(CANSparkMax... sparks) {
         sparkMaxList = new ArrayList<>(Arrays.asList(sparks));
