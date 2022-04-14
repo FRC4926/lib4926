@@ -70,10 +70,17 @@ public class GalacPIDController {
     }
 
     public double getEffort() {
+        double mez = measurementSupplier.get();
 
-        double effort = innerController.calculate(measurementSupplier.get(), setpoint);
+        double effort = innerController.calculate(mez, setpoint);
+        if(!isFinished()) {
+            return (minEffort * (-Math.signum(mez))) + effort;
 
-        return (minEffort * Math.signum(effort)) + effort;
+        } else  {
+            return 0;
+        }
+
+
     }
 
     public boolean isFinished() {
